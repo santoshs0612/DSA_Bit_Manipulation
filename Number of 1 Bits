@@ -1,0 +1,64 @@
+
+Given a positive integer N, print count of set bits in it. 
+
+Example 1:
+
+Input:
+N = 6
+Output:
+2
+Explanation:
+Binary representation is '110' 
+So the count of the set bit is 2.
+
+
+
+
+
+  public:
+    int setBits(int N) {
+        // Write Your Code here
+// O(N)
+        // int flag=1;
+        // int count=0;
+        // int j=N;
+        // if(N==1)
+        // {
+        //     return 1;
+        // }
+        // while(j--)
+        // {
+        //     if(N&flag)
+        //     {
+        //         count++;
+        //     }
+                // Multiplicaton by 2
+        //     flag<<=1;
+        // }
+        // return count;
+    // O(log(N)
+    // int count=0;
+    //     while(N)
+    //     {
+    //         count+=N&1;
+    //         // devision 
+    //         N>>=1;
+    //     }
+    //     return count;
+
+    // }
+//f we subtract a number by 1 and do it bitwise & with itself 
+//(n & (n-1)), we unset the rightmost set bit. If we do n & (n-1) 
+//in a loop and count the number of times the loop executes, we get 
+//the set bit count.
+// Brian Kernighan’s Algorithm:
+int count=0;
+while(N)
+{
+    N&=(N-1);
+    count++;
+}
+return count;
+}
+
+};
