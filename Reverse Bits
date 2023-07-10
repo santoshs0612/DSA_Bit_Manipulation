@@ -49,3 +49,16 @@ whose decimal value is 2684354560.
         
     }
 };
+
+
+
+
+long long n= sizeof(x)*8;
+long long result=0;
+for(long long i=0;i<32;i++){
+  long long lsb = n&1;
+  int leftshift= lsb<<(31-i);
+  int  result= result|leftshift;
+  n=n>>1;
+}
+return result;
